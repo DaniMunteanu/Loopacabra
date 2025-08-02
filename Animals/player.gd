@@ -15,6 +15,7 @@ var current_direction = player_direction.LEFT
 
 func _ready() -> void:
 	Global.minigame_started.connect(_on_minigame_started)
+	Global.minigame_ended.connect(_on_minigame_ended)
 
 func _on_minigame_started(animal: CharacterBody2D):
 	var walking_angle = rad_to_deg(self.get_angle_to(animal.global_position))
@@ -28,12 +29,18 @@ func _on_minigame_started(animal: CharacterBody2D):
 			
 	current_state = player_states.MINIGAME
 	
-	
 	var middle = (global_position + animal.global_position) / 2.0
 	camera.global_position.x = middle.x - 50
 	camera.global_position.y = middle.y - 50
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera, "zoom", Vector2(2,2), 1.0)
+
+func _on_minigame_ended():
+	camera.global_position = global_position
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera, "zoom", Vector2(1,1), 1.0)
+	
+	current_state = player_states.IDLE
 
 func update_movement():
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b13r7jgg8ehpd"]
+
+[ext_resource type="Texture2D" uid="uid://nu0ax5vixain" path="res://Sprites/UI_Sprites/ReputationMeterProgressFront.png" id="1_55jn1"]
+[ext_resource type="Script" path="res://UI_Elements/reputation_meter.gd" id="1_lo2fa"]
+[ext_resource type="Texture2D" uid="uid://or7ijhuo0ge" path="res://Sprites/UI_Sprites/ReputationMeterFrame.png" id="2_7fqut"]
+[ext_resource type="Texture2D" uid="uid://copsmyb3mx0h4" path="res://Sprites/UI_Sprites/ReputationMeterProgressBack.png" id="3_klcoe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kntvr"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ReputationMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lo2fa")
+
+[node name="ReputationBarFront" type="TextureProgressBar" parent="."]
+offset_left = 381.0
+offset_top = 22.0
+offset_right = 501.0
+offset_bottom = 38.0
+step = 0.1
+value = 30.0
+texture_progress = ExtResource("1_55jn1")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="ReputationBarBack" type="TextureProgressBar" parent="ReputationBarFront"]
+z_index = -1
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 16.0
+step = 0.1
+value = 40.0
+texture_under = ExtResource("2_7fqut")
+texture_progress = ExtResource("3_klcoe")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = -2.0
+offset_right = 485.0
+offset_bottom = 21.0
+text = "Reputation"
+label_settings = SubResource("LabelSettings_kntvr")
+horizontal_alignment = 1
+vertical_alignment = 1

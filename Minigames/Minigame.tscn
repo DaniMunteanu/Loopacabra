@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqestvbavqpbi"]
+[gd_scene load_steps=22 format=3 uid="uid://dqestvbavqpbi"]
 
 [ext_resource type="Texture2D" uid="uid://cw658pk85nxrm" path="res://Sprites/MinigameGuitar.png" id="1_1fayb"]
 [ext_resource type="Script" path="res://Minigames/minigame.gd" id="1_xo222"]
@@ -56,6 +56,10 @@ region = Rect2(4, 0, 4, 299)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1a7l1"]
 atlas = ExtResource("2_3jfwe")
 region = Rect2(4, 0, 4, 299)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjonl"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Minigame" type="CanvasLayer"]
 script = ExtResource("1_xo222")
@@ -116,11 +120,14 @@ texture_disabled = SubResource("AtlasTexture_1a7l1")
 script = ExtResource("8_71nv1")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 220.0
-offset_top = 322.0
-offset_right = 412.0
-offset_bottom = 345.0
+offset_left = 209.0
+offset_top = 323.0
+offset_right = 401.0
+offset_bottom = 346.0
 text = "Press the correct chords!"
+label_settings = SubResource("LabelSettings_mjonl")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Chord0" to="Chord0" method="_on_pressed"]
 [connection signal="pressed" from="Chord1" to="Chord1" method="_on_pressed"]

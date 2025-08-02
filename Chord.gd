@@ -21,6 +21,11 @@ func try_chord():
 		await get_tree().create_timer(0.5).timeout
 		
 		texture_disabled.region = Rect2(4,0,4,299) #DARK GRAY
+		
+		get_parent()._on_minigame_lost()
 	else:
 		get_parent().picked_chords_index.erase(index)
+		
+		if get_parent().picked_chords_index.is_empty():
+			get_parent()._on_minigame_won()
 		

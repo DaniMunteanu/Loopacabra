@@ -10,3 +10,7 @@ func _ready() -> void:
 	
 func _on_interact():
 	Global.minigame_started.emit(self)
+
+func end_interaction():
+	interactable.is_interactable = false
+	Global.minigame_ended.emit()

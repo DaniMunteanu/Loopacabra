@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1c2pgylj65na"]
+[gd_scene load_steps=13 format=3 uid="uid://b1c2pgylj65na"]
 
 [ext_resource type="Texture2D" uid="uid://bmj5k2sotvv3k" path="res://Sprites/PlayerDayIdle.png" id="1_7exsv"]
 [ext_resource type="Script" path="res://Animals/player.gd" id="1_n72kr"]
 [ext_resource type="Texture2D" uid="uid://coh8sw5paxgiv" path="res://Sprites/PlayerDayWalking.png" id="2_tpdau"]
+[ext_resource type="PackedScene" uid="uid://b13r7jgg8ehpd" path="res://UI_Elements/ReputationMeter.tscn" id="4_57g8y"]
 [ext_resource type="PackedScene" uid="uid://bhnjoddrd34a8" path="res://InteractingComponent.tscn" id="4_jptvi"]
 
 [sub_resource type="Animation" id="Animation_epc3q"]
@@ -422,6 +423,10 @@ libraries = {
 y_sort_enabled = true
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ReputationMeter" parent="Camera2D/CanvasLayer" instance=ExtResource("4_57g8y")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
