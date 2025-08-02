@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://bijrj8t6sgu72"]
+[gd_scene load_steps=11 format=4 uid="uid://bijrj8t6sgu72"]
 
 [ext_resource type="Texture2D" uid="uid://dli57wedur4io" path="res://Sprites/Tileset.png" id="1_lnp1f"]
 [ext_resource type="PackedScene" uid="uid://b1c2pgylj65na" path="res://Animals/Player.tscn" id="2_wgn42"]
 [ext_resource type="Script" path="res://day_night_cycle.gd" id="3_wpqj2"]
 [ext_resource type="Texture2D" uid="uid://cfyxjhxufxxrk" path="res://day_night_gradient.tres" id="4_pusld"]
 [ext_resource type="PackedScene" uid="uid://dh6eysi0ynuvo" path="res://Animals/Chicken.tscn" id="5_5ea3k"]
+[ext_resource type="Texture2D" uid="uid://0lc60ltiqgi5" path="res://Sprites/Goat.png" id="6_sqhmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcpen"]
 texture = ExtResource("1_lnp1f")
@@ -120,3 +121,7 @@ position = Vector2(244, 568)
 
 [node name="Chicken4" parent="." instance=ExtResource("5_5ea3k")]
 position = Vector2(598, 133)
+
+[node name="Goat" type="Sprite2D" parent="."]
+position = Vector2(415, 165)
+texture = ExtResource("6_sqhmb")

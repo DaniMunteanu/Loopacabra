@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1c2pgylj65na"]
+[gd_scene load_steps=12 format=3 uid="uid://b1c2pgylj65na"]
 
 [ext_resource type="Texture2D" uid="uid://bmj5k2sotvv3k" path="res://Sprites/PlayerDayIdle.png" id="1_7exsv"]
 [ext_resource type="Script" path="res://Animals/player.gd" id="1_n72kr"]
 [ext_resource type="Texture2D" uid="uid://coh8sw5paxgiv" path="res://Sprites/PlayerDayWalking.png" id="2_tpdau"]
+[ext_resource type="PackedScene" uid="uid://bhnjoddrd34a8" path="res://InteractingComponent.tscn" id="4_jptvi"]
 
 [sub_resource type="Animation" id="Animation_epc3q"]
 resource_name = "IdleDayLeft"
@@ -420,8 +421,12 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 y_sort_enabled = true
 process_callback = 0
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
 position = Vector2(1, -5)
 shape = SubResource("RectangleShape2D_ko3k8")
+
+[node name="InteractingComponent" parent="." instance=ExtResource("4_jptvi")]
+position = Vector2(0, -26)
