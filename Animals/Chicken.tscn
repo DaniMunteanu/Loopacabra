@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dh6eysi0ynuvo"]
+[gd_scene load_steps=17 format=3 uid="uid://dh6eysi0ynuvo"]
 
 [ext_resource type="Script" path="res://Animals/chicken.gd" id="1_0os3g"]
 [ext_resource type="Texture2D" uid="uid://38enoi41re3d" path="res://Sprites/ChickenIdle.png" id="1_xr6oy"]
 [ext_resource type="Texture2D" uid="uid://3pqujc0d6t1t" path="res://Sprites/ChickenWalking.png" id="2_78dsp"]
 [ext_resource type="PackedScene" uid="uid://caho8ydicfniv" path="res://Interactable.tscn" id="4_s3iti"]
+[ext_resource type="Script" path="res://Hurtbox.gd" id="5_1c7wm"]
+[ext_resource type="Script" path="res://Health.gd" id="6_liyc6"]
+[ext_resource type="PackedScene" uid="uid://dyl04iy6bcuhl" path="res://UI_Elements/HealthBar.tscn" id="7_bj1bt"]
 
 [sub_resource type="Animation" id="Animation_6jsir"]
 resource_name = "IdleLeft"
@@ -405,10 +408,21 @@ size = Vector2(52, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tfrh"]
 radius = 48.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi7oj"]
+radius = 22.0
+
 [node name="Chicken" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_0os3g")
+
+[node name="HealthBar" parent="." instance=ExtResource("7_bj1bt")]
+visible = false
+offset_left = -25.0
+offset_top = -60.0
+offset_right = 25.0
+offset_bottom = -53.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ChickenSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -432,3 +446,13 @@ interact_name = "[E] to Play Guitar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 shape = SubResource("CircleShape2D_5tfrh")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("5_1c7wm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -26)
+shape = SubResource("CircleShape2D_qi7oj")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("6_liyc6")

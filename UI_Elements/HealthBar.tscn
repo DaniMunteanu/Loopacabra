@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyl04iy6bcuhl"]
+
+[ext_resource type="Texture2D" uid="uid://cnxh1jihn6t8" path="res://Sprites/UI_Sprites/AnimalHealthBarProgressFront.png" id="1_62dhr"]
+[ext_resource type="Texture2D" uid="uid://by7804h2bxhih" path="res://Sprites/UI_Sprites/AnimalHealthBarFrame.png" id="2_nuv3k"]
+[ext_resource type="Texture2D" uid="uid://lkm68hoo1qks" path="res://Sprites/UI_Sprites/AnimalHealthBarProgressBack.png" id="3_eovtv"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+z_index = 5
+offset_right = 50.0
+offset_bottom = 7.0
+size_flags_horizontal = 4
+value = 30.0
+texture_progress = ExtResource("1_62dhr")
+
+[node name="HealthBarBack" type="TextureProgressBar" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 7.0
+value = 40.0
+texture_under = ExtResource("2_nuv3k")
+texture_progress = ExtResource("3_eovtv")

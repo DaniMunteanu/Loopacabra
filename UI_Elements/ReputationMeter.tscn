@@ -20,6 +20,7 @@ mouse_filter = 2
 script = ExtResource("1_lo2fa")
 
 [node name="ReputationBarFront" type="TextureProgressBar" parent="."]
+layout_mode = 0
 offset_left = 381.0
 offset_top = 22.0
 offset_right = 501.0
