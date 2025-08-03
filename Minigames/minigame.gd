@@ -18,6 +18,7 @@ var target_animal: CharacterBody2D
 var time_earned: int = 1000
 var score_points: int = 50
 
+
 func init_chords_array():
 	chords.resize(CHORDS_NUMBER)
 	for i in CHORDS_NUMBER:
@@ -66,6 +67,9 @@ func _on_minigame_won():
 	disable_chords()
 	visible = false
 	label.text = indication_label
+	
+	Global.score += score_points
+	Global.score_points_earned.emit()
 	
 func _on_minigame_lost():
 	label.text = fail_label

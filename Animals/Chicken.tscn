@@ -445,7 +445,7 @@ shape = SubResource("RectangleShape2D_wf1a6")
 
 [node name="Interactable" parent="." instance=ExtResource("4_s3iti")]
 position = Vector2(0, -26)
-interact_name = "[E] to Play Guitar"
+interact_name = "[E] to impress"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 shape = SubResource("CircleShape2D_5tfrh")
@@ -465,3 +465,4 @@ max_health = 2
 current_health = 2
 
 [connection signal="received_damage" from="Hurtbox" to="Health" method="_on_hurtbox_received_damage"]
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

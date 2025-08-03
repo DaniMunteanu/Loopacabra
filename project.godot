@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Loopacabra"
+run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,7 @@ config/icon="res://icon.svg"
 
 Minigame="*res://Minigames/Minigame.tscn"
 Global="*res://Global.gd"
+TransitionScreen="*res://UI_Elements/TransitionScreen.tscn"
 
 [display]
 
@@ -60,9 +62,11 @@ interact={
 
 2d_physics/layer_1="PlayerCollision"
 2d_physics/layer_2="Interactions"
-2d_physics/layer_3="AnimalsHurtbox"
+2d_physics/layer_3="ChickenHurtbox"
 2d_physics/layer_4="ChickenCollision"
 2d_physics/layer_5="EnemyCollision"
+2d_physics/layer_6="EnemyDogHurtbox"
+2d_physics/layer_7="PlayerHurtbox"
 
 [rendering]
 

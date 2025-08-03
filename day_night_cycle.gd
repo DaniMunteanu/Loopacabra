@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 	if value < 0.5 && is_daytime:
 		is_daytime = false
 		Global.switch_to_night.emit()
+	
+	if value > 0.5 && is_daytime == false && Global.game_over == false:
+		Global.switch_to_next_day.emit()

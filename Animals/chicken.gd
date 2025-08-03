@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var health_bar: TextureProgressBar = $HealthBar
 @onready var health: Health = $Health
 
+var kill_points: int = 50
+
 func _ready() -> void:
 	init_health_bar()
 	interactable.interact = _on_interact
@@ -36,3 +38,8 @@ func _update_health_bar(diff: int):
 	
 	await get_tree().create_timer(0.5).timeout
 	health_bar.get_node("HealthBarBack").value = health.current_health
+
+func _on_health_health_depleted() -> void:
+	Global.score += kill_points
+	Global.score_points_earned.emit()
+	queue_free()

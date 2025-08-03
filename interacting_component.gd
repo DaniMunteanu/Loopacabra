@@ -4,16 +4,24 @@ extends Node2D
 
 var current_interactions := []
 var can_interact := true
+var is_night :bool = false
 
 func _ready() -> void:
 	Global.minigame_ended.connect(_on_minigame_ended)
 	Global.switch_to_night.connect(_on_switch_to_night)
+	Global.switch_to_next_day.connect(_on_next_day)
 
 func _on_minigame_ended():
-	can_interact = true
+	if is_night == false:
+		can_interact = true
 	
 func _on_switch_to_night():
+	is_night = true
 	can_interact = false
+	
+func _on_next_day():
+	is_night = false
+	can_interact = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
@@ -37,12 +45,14 @@ func _process(delta: float) -> void:
 		interact_label.hide()
 		
 func _sort_by_nearest(area1, area2):
-	var area1_dist = global_position.distance_to(area1)
-	var area2_dist = global_position.distance_to(area2)
+	var area1_dist = global_position.distance_to(area1.global_position)
+	var area2_dist = global_position.distance_to(area2.global_position)
 	return area1_dist < area2_dist
 
 func _on_interact_range_area_entered(area: Area2D) -> void:
-	current_interactions.push_back(area)
+	if "interact" in area:
+		current_interactions.push_back(area)
 
 func _on_interact_range_area_exited(area: Area2D) -> void:
-	current_interactions.erase(area)
+	if "interact" in area:
+		current_interactions.erase(area)
