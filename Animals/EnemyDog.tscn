@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0hakx8jxwi1a"]
+
+[ext_resource type="Script" path="res://Animals/enemy_dog.gd" id="1_dys7u"]
+[ext_resource type="Texture2D" uid="uid://r02greuplcw3" path="res://icon.svg" id="1_knneo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lngoj"]
+size = Vector2(126, 20)
+
+[node name="EnemyDog" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_dys7u")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_knneo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_lngoj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true

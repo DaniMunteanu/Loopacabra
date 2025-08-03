@@ -7,9 +7,13 @@ var can_interact := true
 
 func _ready() -> void:
 	Global.minigame_ended.connect(_on_minigame_ended)
+	Global.switch_to_night.connect(_on_switch_to_night)
 
 func _on_minigame_ended():
 	can_interact = true
+	
+func _on_switch_to_night():
+	can_interact = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:

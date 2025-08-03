@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bijrj8t6sgu72"]
+[gd_scene load_steps=15 format=4 uid="uid://bijrj8t6sgu72"]
 
 [ext_resource type="Texture2D" uid="uid://dli57wedur4io" path="res://Sprites/Tileset.png" id="1_lnp1f"]
 [ext_resource type="PackedScene" uid="uid://b1c2pgylj65na" path="res://Animals/Player.tscn" id="2_wgn42"]
@@ -6,6 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://cfyxjhxufxxrk" path="res://day_night_gradient.tres" id="4_pusld"]
 [ext_resource type="PackedScene" uid="uid://dh6eysi0ynuvo" path="res://Animals/Chicken.tscn" id="5_5ea3k"]
 [ext_resource type="Texture2D" uid="uid://0lc60ltiqgi5" path="res://Sprites/Goat.png" id="6_sqhmb"]
+[ext_resource type="PackedScene" uid="uid://c0hakx8jxwi1a" path="res://Animals/EnemyDog.tscn" id="7_yiseo"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mju3n"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_epij3"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_emwhn"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcpen"]
 texture = ExtResource("1_lnp1f")
@@ -16,11 +35,15 @@ texture = ExtResource("1_lnp1f")
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_mju3n")
 3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_emwhn")
 0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_epij3")
 3:3/0 = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_mju3n")
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
@@ -39,6 +62,8 @@ texture = ExtResource("1_lnp1f")
 3:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_eego7"]
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_xcpen")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3qjn"]
@@ -102,6 +127,8 @@ tile_set = SubResource("TileSet_epbd6")
 
 [node name="CollisionBarrier" type="StaticBody2D" parent="."]
 z_index = 1
+collision_layer = 25
+collision_mask = 25
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionBarrier"]
 polygon = PackedVector2Array(0, 0, 1280, 0, 1280, 720, 0, 719, 0, 2, -4, 2, -4, 723, 1284, 723, 1284, -4, -4, -4)
@@ -125,3 +152,6 @@ position = Vector2(598, 133)
 [node name="Goat" type="Sprite2D" parent="."]
 position = Vector2(415, 165)
 texture = ExtResource("6_sqhmb")
+
+[node name="EnemyDog" parent="." instance=ExtResource("7_yiseo")]
+position = Vector2(106, 701)

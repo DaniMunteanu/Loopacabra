@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	time += delta * INGAME_REAL_MINUTE_RATIO * INGAME_SPEED
 	var value = (sin(time) + 1.0 ) / 2.0
 	color = gradient.gradient.sample(value)
-	print(value)
 
 	if value < 0.5 && is_daytime:
 		is_daytime = false

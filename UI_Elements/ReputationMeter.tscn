@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b13r7jgg8ehpd"]
+[gd_scene load_steps=7 format=3 uid="uid://b13r7jgg8ehpd"]
 
 [ext_resource type="Texture2D" uid="uid://nu0ax5vixain" path="res://Sprites/UI_Sprites/ReputationMeterProgressFront.png" id="1_55jn1"]
 [ext_resource type="Script" path="res://UI_Elements/reputation_meter.gd" id="1_lo2fa"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://copsmyb3mx0h4" path="res://Sprites/UI_Sprites/ReputationMeterProgressBack.png" id="3_klcoe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kntvr"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_67hyi"]
+font_color = Color(1, 0, 0, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -49,5 +54,18 @@ offset_right = 485.0
 offset_bottom = 21.0
 text = "Reputation"
 label_settings = SubResource("LabelSettings_kntvr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelNight" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 393.0
+offset_top = 27.0
+offset_right = 493.0
+offset_bottom = 50.0
+rotation = -0.306388
+text = "WHO CARES?"
+label_settings = SubResource("LabelSettings_67hyi")
 horizontal_alignment = 1
 vertical_alignment = 1
