@@ -9,7 +9,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const DAMAGE = 1
 
-enum player_states {IDLE, WALKING, MINIGAME, TRANSFORMING, ATTACKING, DEAD}
+enum player_states {IDLE, WALKING, MINIGAME, TRANSFORMING, ATTACKING}
 var current_state = player_states.IDLE
 
 enum player_direction {LEFT, RIGHT}
@@ -147,3 +147,6 @@ func _on_hitbox_area_entered(hurtbox: Hurtbox) -> void:
 	if first_blood == false:
 		first_blood = true
 		Global.alert_enemy_dogs.emit()
+
+func _on_health_health_depleted() -> void:
+	Global.game_over_night.emit()

@@ -1,0 +1,167 @@
+[gd_scene load_steps=14 format=3 uid="uid://cpuj3lcbtyw6i"]
+
+[ext_resource type="Texture2D" uid="uid://4gcniafbdv7" path="res://Sprites/UI_Sprites/ButtonTextureNormal.png" id="1_o5464"]
+[ext_resource type="Script" path="res://UI_Elements/game_over_day.gd" id="1_roxtl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0x1e"]
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfyui"]
+atlas = ExtResource("1_o5464")
+region = Rect2(0, 0, 60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gatha"]
+atlas = ExtResource("1_o5464")
+region = Rect2(0, 31, 60, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wigx"]
+atlas = ExtResource("1_o5464")
+region = Rect2(0, 60, 60, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u1j6k"]
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1exr"]
+atlas = ExtResource("1_o5464")
+region = Rect2(0, 0, 60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es014"]
+atlas = ExtResource("1_o5464")
+region = Rect2(0, 30, 60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4ebk"]
+atlas = ExtResource("1_o5464")
+region = Rect2(0, 60, 60, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqqcq"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdjer"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7bdgb"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverDay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_roxtl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.698039, 1, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 240.0
+offset_top = 95.5
+offset_right = 400.0
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "They don't like you :("
+label_settings = SubResource("LabelSettings_w0x1e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="TextureButton" parent="."]
+offset_left = 153.0
+offset_top = 239.0
+offset_right = 303.0
+offset_bottom = 314.0
+texture_normal = SubResource("AtlasTexture_cfyui")
+texture_pressed = SubResource("AtlasTexture_gatha")
+texture_hover = SubResource("AtlasTexture_3wigx")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PlayAgainButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -17.0
+offset_right = 63.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again"
+label_settings = SubResource("LabelSettings_u1j6k")
+
+[node name="ExitButton" type="TextureButton" parent="."]
+offset_left = 334.0
+offset_top = 239.0
+offset_right = 484.0
+offset_bottom = 314.0
+texture_normal = SubResource("AtlasTexture_a1exr")
+texture_pressed = SubResource("AtlasTexture_es014")
+texture_hover = SubResource("AtlasTexture_q4ebk")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -35.5
+offset_right = 58.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit to
+Main Menu"
+label_settings = SubResource("LabelSettings_fqqcq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DaysSurvived" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 240.0
+offset_top = 148.5
+offset_right = 400.0
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Days survived: "
+label_settings = SubResource("LabelSettings_fdjer")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 240.0
+offset_top = 169.0
+offset_right = 400.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_7bdgb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

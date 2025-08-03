@@ -5,6 +5,7 @@ extends CanvasModulate
 
 var time: float = 0.0
 var is_daytime: bool = true
+var level_over: bool = false
 
 const MINUTES_PER_DAY = 1440
 const INGAME_REAL_MINUTE_RATIO = (2 * PI) / MINUTES_PER_DAY
@@ -18,5 +19,6 @@ func _process(delta: float) -> void:
 		is_daytime = false
 		Global.switch_to_night.emit()
 	
-	if value > 0.5 && is_daytime == false && Global.game_over == false:
+	if value > 0.5 && is_daytime == false && Global.game_over == false && level_over == false:
+		level_over = true
 		Global.switch_to_next_day.emit()

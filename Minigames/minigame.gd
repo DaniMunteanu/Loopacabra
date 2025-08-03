@@ -15,7 +15,7 @@ var number_of_picks = 3
 var rng = RandomNumberGenerator.new()
 
 var target_animal: CharacterBody2D
-var time_earned: int = 1000
+var time_earned: int = 500
 var score_points: int = 50
 
 

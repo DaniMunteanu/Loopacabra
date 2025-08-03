@@ -17,3 +17,9 @@ signal alert_enemy_dogs()
 
 signal day_started()
 signal score_points_earned(points: int)
+
+signal start_new_game()
+signal return_to_main_menu()
+
+signal game_over_day()
+signal game_over_night()

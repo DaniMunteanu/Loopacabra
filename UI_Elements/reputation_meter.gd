@@ -4,8 +4,9 @@ extends Control
 @onready var reputation_bar_back: TextureProgressBar = $ReputationBarFront/ReputationBarBack
 @onready var label_night: Label = $LabelNight
 
-var meter_max_value: int = 10000
+var meter_max_value: int = 3000
 var just_earned_time: bool = false
+var is_empty: bool = false
 
 func _ready() -> void:
 	Global.switch_to_night.connect(_on_switch_to_night)
@@ -22,6 +23,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if just_earned_time == false:
 		reputation_bar_front.value -= 1
+	if reputation_bar_front.value == 0 && is_empty == false:
+		is_empty = true
+		Global.game_over_day.emit()
 
 func _on_minigame_won(time_earned: int, score_points: int):
 	just_earned_time = true
@@ -36,3 +40,6 @@ func _on_minigame_won(time_earned: int, score_points: int):
 	
 func _on_switch_to_night():
 	label_night.visible = true
+	reputation_bar_front.value = 0
+	reputation_bar_back.value = 0
+	is_empty = true
